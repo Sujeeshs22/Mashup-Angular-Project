@@ -1,0 +1,27 @@
+li:hover {
+  background-color: #f0eeed;
+  cursor: pointer;
+}
+
+li {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid rgb(66, 62, 62);
+}
+
+.material-symbols-outlined:hover {
+  transition: 0.1s;
+  color: #1aa59a;
+}
+
+#likes {
+  font-size: 23px;
+}
+
+.item-likes {
+  padding-top: 45px;
+}
+
+.like-symbol {
+  font-size: 26px;
+}

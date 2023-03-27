@@ -1,0 +1,25 @@
+.alert {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* #errordetails {
+  float: right;
+} */
+
+.signuplink {
+  cursor: pointer;
+  color: lightskyblue;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-div {
+  width: 90%;
+}
+
+/* .login-errorMsg{
+  height: ;
+} */

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/']"
+          routerLinkActive="router-link-active"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/myquestions-answer']"
+          routerLinkActive="router-link-active"
+          *ngIf="loggedIn"
+          >My answers</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/myquestion']"
+          routerLinkActive="router-link-active"
+          *ngIf="loggedIn"
+          >My Questions</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          *ngIf="!loggedIn"
+          class="nav-link"
+          [routerLink]="['/login']"
+          routerLinkActive="router-link-active"
+          >Login/signup</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          *ngIf="loggedIn"
+          class="nav-link"
+          (click)="logout()"
+          routerLinkActive="router-link-active"
+          id="logout"
+          >logout</a
+        >
+      </li>
+    </ul>
+    <span class="justify-content-end text-white mr-4" *ngIf="loggedIn != false"
+      >user: {{ userdetails.user.name }}</span
+    >
+  </div>
+</nav>
+<router-outlet></router-outlet>

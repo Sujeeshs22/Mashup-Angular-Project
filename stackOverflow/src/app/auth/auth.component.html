@@ -1,0 +1,213 @@
+<div class="container">
+  <div>
+    <div class="row">
+      <div class="col-md-6 offset-md-3 offset-sm-0 mt-5">
+        <!-- form -->
+        <form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+          <h1 class="text-center">Login</h1>
+          <div class="form-group">
+            <label for="Loginemail">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              ngModel
+              name="Loginemail"
+              #Loginemail="ngModel"
+              id="Loginemail"
+              required
+            />
+            <span
+              class="text-danger"
+              *ngIf="Loginemail.touched && Loginemail.invalid"
+              >Email Required</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="Loginpassword">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              ngModel
+              name="Loginpassword"
+              #Loginpassword="ngModel"
+              id="Loginpassword"
+              required
+            />
+            <span
+              class="text-danger"
+              *ngIf="Loginpassword.touched && Loginpassword.invalid"
+              >Password required</span
+            >
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="loginError">
+            Invalid credetinals!
+          </div>
+          <button
+            type="submit"
+            class="btn btn-secondary text-center"
+            style="width: 100%"
+            [disabled]="!loginform.valid"
+          >
+            Submit
+          </button>
+          <h6 class="mt-2">
+            Dont have an account?
+            <a data-target="#signupModal" class="signuplink" data-toggle="modal"
+              >Sign up here</a
+            >
+          </h6>
+        </form>
+        <!-- end -->
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="signupModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">Sign Up</h1>
+                <button
+                  #closebutton
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form #form="ngForm" (ngSubmit)="signUp(form)">
+                  <div
+                    class="alert alert-warning"
+                    role="alert"
+                    *ngIf="signupErrorMsg == true"
+                  >
+                    invaild data!
+                  </div>
+                  <div
+                    class="alert alert-success"
+                    role="alert"
+                    *ngIf="signupSuccess == true"
+                  >
+                    Signup successfull
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      ngModel
+                      name="name"
+                      required
+                      #name="ngModel"
+                    />
+                    <small
+                      class="text-danger"
+                      *ngIf="name.invalid && name.touched && signup_error"
+                      >name required</small
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      ngModel
+                      name="email"
+                      #email="ngModel"
+                      required
+                    />
+                    <small
+                      class="text-danger"
+                      *ngIf="email.invalid && email.touched && signup_error"
+                      >email required</small
+                    >
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        signup_error &&
+                        signup_error.email != undefined &&
+                        signup_error.email.length > 0
+                      "
+                    >
+                      {{ signup_error.email }}</small
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      ngModel
+                      name="password"
+                      #password="ngModel"
+                      required
+                    />
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        password.invalid && password.touched && signup_error
+                      "
+                      >password required</small
+                    >
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        signup_error &&
+                        signup_error.password != undefined &&
+                        signup_error.password.length > 1
+                      "
+                    >
+                      {{ signup_error.password }}</small
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Confrim Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      ngModel
+                      name="password_confirmation"
+                      #password_confirmation="ngModel"
+                      required
+                    />
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        password_confirmation.invalid &&
+                        password_confirmation.touched &&
+                        signup_error
+                      "
+                      >password confirmation required</small
+                    >
+                  </div>
+                  <div class="d-flex justify-content-end mt-2">
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger mr-3"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-outline-warning"
+                      [disabled]="!form.valid"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<ul>
+  <li class="row">
+    <div class="col-md-8 mt-3 mb-3 pl-5">
+      <h2>
+        <a [routerLink]="['/showquestion/', question.id]"
+          >Title: {{ question.title }}</a
+        >
+      </h2>
+      <p class="d-inline-block m-0">Question: {{ question.question }}</p>
+      <br />
+      <span>Created at: {{ question.created_at | date : "mediumDate" }}</span>
+      <div class="row" *ngIf="question.likes">
+        <div class="col-md-2 text-center mt-2" *ngIf="loggedIn == true">
+          <span
+            class="material-symbols-outlined like-symbol"
+            type="button"
+            (click)="likeQuestion(question.id)"
+          >
+            thumb_up
+          </span>
+        </div>
+        <div class="col-md-2 text-center mt-2" *ngIf="loggedIn == true">
+          <span
+            class="material-symbols-outlined like-symbol"
+            type="button"
+            (click)="unlikeQuestion(question.id)"
+          >
+            thumb_down
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 text-center item-likes">
+      <span id="likes" *ngIf="question.likes">Likes </span>
+      <p id="likes">{{ question.likes }}</p>
+    </div>
+  </li>
+</ul>
+<!-- <div class="card text-white bg-secondary mb-3" style="max-width: 18rem">
+  <div class="card-header">
+    <h2>
+      <a *ngIf="loggedIn == false">Title: {{ question.title }}</a>
+      <a *ngIf="loggedIn == true" [routerLink]="['/showquestion/', question.id]"
+        >Title: {{ question.title | shorten }}</a
+      >
+    </h2>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">Secondary card title</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+  </div>
+  <div class="card-footer">Footer</div>
+</div> -->

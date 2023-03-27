@@ -1,0 +1,27 @@
+<nav aria-label="Page navigation example ">
+  <div class="paginate d-flex flex-row justify-content-between" *ngIf="pages">
+    <small class="listofpages"
+      >page {{ currentPageNum }} of {{ pages.last_page }}</small
+    >
+    <ul class="pagination mb-2">
+      <li
+        class="page-item  {{ currentPageNum == 1 ? 'disabled' : '' }}"
+        id="nextBtn"
+      >
+        <a
+          class="page-link mr-1 nextBtn"
+          (click)="onNextPage(currentPageNum - 1)"
+          ><span class="material-symbols-outlined"> chevron_left </span></a
+        >
+      </li>
+      <li class="page-item {{ currentPageNum >= 1 ? 'active' : '' }}">
+        <a class="page-link page-num" href="#">{{ currentPageNum }}</a>
+      </li>
+      <li class="page-item ml-1" id="nextBtn">
+        <a class="page-link nextBtn" (click)="onNextPage(currentPageNum + 1)"
+          ><span class="material-symbols-outlined"> chevron_right </span></a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>

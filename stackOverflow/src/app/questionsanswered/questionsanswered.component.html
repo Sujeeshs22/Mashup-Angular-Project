@@ -1,0 +1,19 @@
+<div class="container mt-3" *ngIf="loggedIn == true">
+  <h1 class="text-left mb-4">
+    Answered question
+    <span *ngIf="questionList.length >= 1">({{ questionList.length }})</span>
+  </h1>
+  <hr />
+  <div
+    class="alert alert-primary"
+    role="alert"
+    *ngIf="questionList.length == 0"
+  >
+    <h3>No answers!</h3>
+  </div>
+  <div class="row" *ngIf="loggedIn == true">
+    <div class="col-md-10 mt-2" *ngFor="let item of questionList">
+      <app-listquestion [question]="item"></app-listquestion>
+    </div>
+  </div>
+</div>

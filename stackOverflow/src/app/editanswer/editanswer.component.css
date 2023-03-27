@@ -1,0 +1,21 @@
+.editform {
+  border-radius: 11px;
+  width: 90%;
+  outline: none;
+  padding: 5px 10px 5px;
+  text-align: center;
+}
+
+#editformMsg {
+  display: block;
+  margin-left: 5px;
+}
+
+.answerEdit {
+  width: 100%;
+}
+
+.idk {
+  width: 90%;
+  margin: auto;
+}
